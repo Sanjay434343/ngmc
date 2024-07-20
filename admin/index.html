@@ -173,7 +173,7 @@
   <a href="main.html?event=dance">Dance</a>
   <a href="main.html?event=hackathon">Hackathon</a>
   <a href="main.html?event=quizz">Quizz</a>
-  <a href="main.html?event=treasure-hunt">Treasure-Hunt</a>
+  <a href="main.html?event=treasureHunt">Treasure-Hunt</a>
   
 
   <!-- Firebase JavaScript SDK -->
@@ -181,54 +181,45 @@
   <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-database-compat.js"></script>
   <script>
     const firebaseConfig = {
-        apiKey: "AIzaSyAvfKEmzO888a_P93t88hGGJxPyd5rd0Es",
-        authDomain: "eventregister-ab2fc.firebaseapp.com",
-        databaseURL: "https://eventregister-ab2fc-default-rtdb.firebaseio.com",
-        projectId: "eventregister-ab2fc",
-        storageBucket: "eventregister-ab2fc.appspot.com",
-        messagingSenderId: "1056597328049",
-        appId: "1:1056597328049:web:e04e9672aeeac45be02290" 
+      apiKey: "AIzaSyAvfKEmzO888a_P93t88hGGJxPyd5rd0Es",
+      authDomain: "eventregister-ab2fc.firebaseapp.com",
+      databaseURL: "https://eventregister-ab2fc-default-rtdb.firebaseio.com",
+      projectId: "eventregister-ab2fc",
+      storageBucket: "eventregister-ab2fc.appspot.com",
+      messagingSenderId: "1056597328049",
+      appId: "1:1056597328049:web:e04e9672aeeac45be02290" 
     };
-
+  
     firebase.initializeApp(firebaseConfig);
     const database = firebase.database();
-
+  
     // Function to fetch total results and total questions
     function fetchTotals() {
       // Fetch total results
       database.ref('registrations').once('value', (snapshot) => {
         document.getElementById('totalResults').textContent = snapshot.numChildren();
       });
-
-   
-      // Fetch count of people who selected 'sing'
-      database.ref('registrations').orderByChild('eventType').equalTo('sing').once('value', (snapshot) => {
-        document.getElementById('sing').textContent = snapshot.numChildren();
-      });
-    
-
-          // Fetch count of people who selected 'sing'
-          database.ref('registrations').orderByChild('eventType').equalTo('sing').once('value', (snapshot) => {
-            document.getElementById('dance').textContent = snapshot.numChildren();
-          });
-
-          database.ref('registrations').orderByChild('eventType').equalTo('sing').once('value', (snapshot) => {
-            document.getElementById('hackathon').textContent = snapshot.numChildren();
-          });
-
-          database.ref('registrations').orderByChild('eventType').equalTo('sing').once('value', (snapshot) => {
-            document.getElementById('quizz').textContent = snapshot.numChildren();
-          });
-
-          database.ref('registrations').orderByChild('eventType').equalTo('sing').once('value', (snapshot) => {
-            document.getElementById('treasureHunt').textContent = snapshot.numChildren();
-          });
-        }
+  
+      // Fetch count of people for each event type
+      function fetchEventCount(eventType, elementId) {
+        database.ref('registrations').orderByChild('eventType').equalTo(eventType).once('value', (snapshot) => {
+          document.getElementById(elementId).textContent = snapshot.numChildren();
+        });
+      }
+  
+      fetchEventCount('singing', 'sing');
+      fetchEventCount('dance', 'dance');
+      fetchEventCount('hackathon', 'hackathon');
+      fetchEventCount('quiz', 'quizz');
+      fetchEventCount('treasureHunt', 'treasureHunt');
+    }
+  
     // Call function to fetch totals on page load
     fetchTotals();
-
+  
     // Auto-reload totals every 10 seconds
     setInterval(fetchTotals, 10000); // 10 seconds (10000 milliseconds)
   </script>
+  
 </body>
 </html>

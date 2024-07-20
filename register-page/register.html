@@ -117,6 +117,18 @@
         font-size: 14px;
       }
     }
+
+    .imgs {
+      position: relative;
+      left: 80px;
+    }
+
+    @media (min-width: 1000px) {
+      .imgs {
+        position: relative;
+        left: 183px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -153,8 +165,16 @@
         <option value="treasureHunt">Treasure Hunt</option>
       </select>
 
-      <label for="image">Profile Image:</label>
-      <input type="file" id="image" name="image" accept="image/*" required>
+      <label for="payment">Payment:</label>
+      <p style="font-weight: bold;">Pay ₹50 for the event now, or pay at the college later.</p>
+      <img src="qr.png" alt="QR code" style="max-width: 200px;" class="imgs">
+
+      <input type="file" id="image" name="image" accept="image/*">
+
+      <div>
+        <input type="radio" id="pay-later" name="payment" value="pay-later">
+        <label for="pay-later">Pay Later at College</label>
+      </div>
 
       <button type="submit">Register</button>
     </form>
@@ -210,6 +230,12 @@
         const fileInput = document.getElementById('image');
         const file = fileInput.files[0];
         
+        // Determine payment method
+        let paymentMethod = 'pay-later'; // Default to 'pay-later'
+        if (file) {
+          paymentMethod = 'paid'; // Set to 'paid' if image is uploaded
+        }
+
         if (file) {
           const reader = new FileReader();
           reader.onloadend = function() {
@@ -226,7 +252,8 @@
               university: university,
               gender: gender,
               eventType: eventType,
-              image: base64Image
+              image: base64Image, // Store image Base64 data
+              paymentMethod: paymentMethod // Store payment method separately
             }).then(() => {
               // Hide loading modal and redirect to success page
               loadingModal.style.display = 'none';
@@ -237,11 +264,30 @@
               loadingModal.style.display = 'none'; // Hide loading modal
             });
           };
-          
-          reader.readAsDataURL(file); // Convert image to Base64
+          reader.readAsDataURL(file); // Convert image file to Base64
         } else {
-          alert('Please upload an image.');
-          loadingModal.style.display = 'none'; // Hide loading modal
+          // If no image is uploaded, store empty string
+          const registrationsRef = ref(database, 'registrations');
+          const newRegistrationRef = push(registrationsRef);
+          set(newRegistrationRef, {
+            name: name,
+            email: email,
+            phone: phone,
+            course: course,
+            university: university,
+            gender: gender,
+            eventType: eventType,
+            image: '', // No image uploaded
+            paymentMethod: paymentMethod // Store payment method separately
+          }).then(() => {
+            // Hide loading modal and redirect to success page
+            loadingModal.style.display = 'none';
+            window.location.href = 'success.html'; // Redirect to success page
+          }).catch((error) => {
+            console.error('Error registering:', error);
+            alert('Error registering. Please try again.');
+            loadingModal.style.display = 'none'; // Hide loading modal
+          });
         }
       });
     });

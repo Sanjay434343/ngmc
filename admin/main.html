@@ -10,6 +10,7 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 20px;
+            color: #333;
         }
 
         .container {
@@ -19,24 +20,53 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 800px;
             margin: 20px auto;
+            border-left: 10px solid #18d59f; /* Add a colored left border */
+        }
+
+        .container h1 {
+            margin-top: 0;
+            color: #18d59f; /* Heading color */
+            font-size: 24px;
+            border-bottom: 2px solid #18d59f; /* Underline with color */
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         .person {
             margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 15px;
+            border-radius: 8px;
             background-color: #f9f9f9;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .person:hover {
+            background-color: #e9f5f0; /* Light green background on hover */
         }
 
         .person h2 {
             margin: 0;
             color: #333;
+            font-size: 18px;
         }
 
         .person p {
             margin: 5px 0;
-            color: #777;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .person img {
+            border-radius: 5px;
+            margin-top: 10px;
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -99,10 +129,10 @@
                                     <p>Phone: ${personData.phone}</p>
                                     <p>Gender: ${personData.gender}</p>
                                     <p>Event Type: ${personData.eventType}</p>
-
+  <p>Payment Method: ${personData.paymentMethod}</p>
                                     <p>Course: ${personData.course}</p>
                                     <p>University: ${personData.university}</p>
-                                    <img src="data:image/jpeg;base64,${personData.image}" alt="Profile Image" style="max-width: 100%; height: auto;">
+                                    <img src="data:image/jpeg;base64,${personData.image}" alt="Paying Later" style="max-width: 100%; height: auto;">
                                 `;
                                 peopleList.appendChild(listItem);
                             }
