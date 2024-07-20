@@ -8,28 +8,33 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #e9ecef;
+      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.468), rgba(40, 180, 133, 0.364)), url(/bg.jpg);
+      background-position: center center; /* Centers the image in the viewport */
+      background-size: cover; /* Ensures the image covers the entire screen */
+      background-repeat: no-repeat;
+      background-attachment: fixed; /* Keeps the image fixed in the viewport */
       margin: 0;
       padding: 0;
-      height: auto;
-      color: #495057;
+      height: 100vh; /* Ensures the body takes up the full height of the viewport */
+      color: #ffffff;
     }
-
+    
     h1 {
       text-align: center;
-      color: #212529;
+      color: #ffffff;
       margin-top: 40px;
       font-size: 2.5rem;
       font-weight: 600;
+
     }
 
     .container {
       max-width: 500px;
       margin: 0 auto;
-      background-color: #dafff9;
+      background-color: #ffffff00;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      
       margin-top: 40px;
       box-sizing: border-box;
   
@@ -42,7 +47,7 @@
 
     label {
       margin-bottom: 5px;
-      color: #495057;
+      color: #ffffff;
       font-weight: 500;
     }
 
@@ -147,14 +152,15 @@ border: 2px solid #000000;
 align-items: center;
 text-align: center;
 border-radius: 6px;
-margin: 10px 10px;
+margin: 10px;
 
     }
   
     input[type="file"]{
       position: relative;
-      left: 100px;
+      left: 10px;
       top: 10px;
+      width: 50%;
     }
  
   
@@ -162,7 +168,7 @@ margin: 10px 10px;
 </head>
 <body>
   <div class="container">
-    <h2>Event Registration</h2>
+    <h2 style="color: white;">Event Registration</h2>
     <form id="registration-form">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
@@ -196,7 +202,7 @@ margin: 10px 10px;
 
   
       <label for="payment">Payment:</label>
-      <p class="payment-method">Pay ₹50 for the event now, or pay at the college later.</p>
+      <p class="payment-method" style="color: white;">Pay ₹50 for the event now, or pay at the college later.</p>
       <img src="qr.png" alt="QR code" class="imgs">
       <div class="file-input">  
       <input type="file" id="image" name="image" accept="image/*">
