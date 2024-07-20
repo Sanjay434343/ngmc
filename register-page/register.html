@@ -1,105 +1,149 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Registration</title>
-    <!-- Include Firebase scripts for modular v9+ -->
-    <script type="module">
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js';
-      import { getDatabase, ref, set, push } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="image" type="logo" href="imgs/logo.jpg">
+  <title>Event Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
 
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-          apiKey: "AIzaSyAvfKEmzO888a_P93t88hGGJxPyd5rd0Es",
-          authDomain: "eventregister-ab2fc.firebaseapp.com",
-          databaseURL: "https://eventregister-ab2fc-default-rtdb.firebaseio.com",
-          projectId: "eventregister-ab2fc",
-          storageBucket: "eventregister-ab2fc.appspot.com",
-          messagingSenderId: "1056597328049",
-          appId: "1:1056597328049:web:e04e9672aeeac45be02290"
-      };
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 20px;
+    }
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const database = getDatabase(app);
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
 
-      // Handle form submission
-      document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('registration-form');
-        form.addEventListener('submit', function(event) {
-          event.preventDefault();
+    form {
+      display: flex;
+      flex-direction: column;
+    }
 
-          const name = document.getElementById('name').value;
-          const email = document.getElementById('email').value;
-          const phone = document.getElementById('phone').value;
-          const course = document.getElementById('course').value;
-          const university = document.getElementById('university').value;
-          const gender = document.getElementById('gender').value;
-          const eventType = document.getElementById('event').value;
+    label {
+      margin-bottom: 5px;
+      color: #555;
+      font-weight: bold;
+    }
 
-          const fileInput = document.getElementById('image');
-          const file = fileInput.files[0];
-          
-          if (file) {
-            const reader = new FileReader();
-            reader.onloadend = function() {
-              const base64Image = reader.result.split(',')[1]; // Get Base64 string without the data URL prefix
-              
-              // Store data in Firebase
-              const registrationsRef = ref(database, 'registrations');
-              const newRegistrationRef = push(registrationsRef);
-              set(newRegistrationRef, {
-                name: name,
-                email: email,
-                phone: phone,
-                course: course,
-                university: university,
-                gender: gender,
-                eventType: eventType,
-                image: base64Image
-              }).then(() => {
-                alert('Registration successful!');
-                form.reset(); // Reset form
-              }).catch((error) => {
-                console.error('Error registering:', error);
-                alert('Error registering. Please try again.');
-              });
-            };
-            
-            reader.readAsDataURL(file); // Convert image to Base64
-          } else {
-            alert('Please upload an image.');
-          }
-        });
-      });
-    </script>
-  </head>
-  <body>
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="file"] {
+      border: none;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .loading-spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #28a745;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+        margin-top: 10px;
+      }
+
+      button {
+        padding: 12px 20px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
     <h1>Event Registration</h1>
-    
     <form id="registration-form">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
-      
+
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required>
-      
+
       <label for="phone">Phone Number:</label>
       <input type="tel" id="phone" name="phone" required>
-      
+
       <label for="course">Course:</label>
       <input type="text" id="course" name="course" required>
-      
+
       <label for="university">University:</label>
       <input type="text" id="university" name="university" required>
-      
+
       <label for="gender">Gender:</label>
       <select id="gender" name="gender" required>
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
-      
+
       <label for="event">Event Type:</label>
       <select id="event" name="event" required>
         <option value="dance">Dance</option>
@@ -108,11 +152,99 @@
         <option value="quiz">Quiz</option>
         <option value="treasureHunt">Treasure Hunt</option>
       </select>
-      
+
       <label for="image">Profile Image:</label>
       <input type="file" id="image" name="image" accept="image/*" required>
-      
+
       <button type="submit">Register</button>
     </form>
-  </body>
-  </html>
+  </div>
+
+  <!-- Modal for loading animation -->
+  <div class="modal" id="loading-modal">
+    <div class="modal-content">
+      <div class="loading-spinner"></div>
+      <p>Processing...</p>
+    </div>
+  </div>
+
+  <!-- Include Firebase scripts for modular v9+ -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js';
+    import { getDatabase, ref, set, push } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js';
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyAvfKEmzO888a_P93t88hGGJxPyd5rd0Es",
+        authDomain: "eventregister-ab2fc.firebaseapp.com",
+        databaseURL: "https://eventregister-ab2fc-default-rtdb.firebaseio.com",
+        projectId: "eventregister-ab2fc",
+        storageBucket: "eventregister-ab2fc.appspot.com",
+        messagingSenderId: "1056597328049",
+        appId: "1:1056597328049:web:e04e9672aeeac45be02290"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Handle form submission
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('registration-form');
+      const loadingModal = document.getElementById('loading-modal');
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Show loading modal
+        loadingModal.style.display = 'flex';
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const course = document.getElementById('course').value;
+        const university = document.getElementById('university').value;
+        const gender = document.getElementById('gender').value;
+        const eventType = document.getElementById('event').value;
+
+        const fileInput = document.getElementById('image');
+        const file = fileInput.files[0];
+        
+        if (file) {
+          const reader = new FileReader();
+          reader.onloadend = function() {
+            const base64Image = reader.result.split(',')[1]; // Get Base64 string without the data URL prefix
+            
+            // Store data in Firebase
+            const registrationsRef = ref(database, 'registrations');
+            const newRegistrationRef = push(registrationsRef);
+            set(newRegistrationRef, {
+              name: name,
+              email: email,
+              phone: phone,
+              course: course,
+              university: university,
+              gender: gender,
+              eventType: eventType,
+              image: base64Image
+            }).then(() => {
+              // Hide loading modal and redirect to success page
+              loadingModal.style.display = 'none';
+              window.location.href = 'success.html'; // Redirect to success page
+            }).catch((error) => {
+              console.error('Error registering:', error);
+              alert('Error registering. Please try again.');
+              loadingModal.style.display = 'none'; // Hide loading modal
+            });
+          };
+          
+          reader.readAsDataURL(file); // Convert image to Base64
+        } else {
+          alert('Please upload an image.');
+          loadingModal.style.display = 'none'; // Hide loading modal
+        }
+      });
+    });
+  </script>
+</body>
+</html>
