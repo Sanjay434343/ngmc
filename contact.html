@@ -170,7 +170,7 @@
         }
 
         .modal-content input[type="text"], .modal-content input[type="tel"], .modal-content textarea {
-            width: 100%;
+            width: 80%;
             padding: 10px;
             margin: 10px 0;
             border-radius: 6px;
@@ -231,13 +231,13 @@
     <div class="modal" id="modal-1">
         <div class="modal-content">
             <h3>Contact Martin</h3>
-            <button onclick="window.location.href='tel:+1234567890'">Call</button>
+            <button onclick="window.location.href='tel:+918903219655'">Call</button>
             <button id="message-button-1">Message</button>
             <div id="message-form-1" style="display:none;">
                 <input type="text" id="name-1" placeholder="Your Name" required>
                 <input type="tel" id="phone-1" placeholder="Your Phone Number" required>
                 <textarea id="message-1" placeholder="Your Message" rows="4" required></textarea>
-                <button onclick="sendMessage('8903219655', document.getElementById('message-1').value)">Send</button>
+                <button onclick="sendMessage('+918903219655', document.getElementById('message-1').value)">Send</button>
             </div>
         </div>
     </div>
@@ -246,7 +246,7 @@
     <div class="modal" id="modal-2">
         <div class="modal-content">
             <h3>Contact Max</h3>
-            <button onclick="window.location.href='tel:+0987654321'">Call</button>
+            <button onclick="window.location.href='tel:+918667046259'">Call</button>
             <button id="message-button-2">Message</button>
             <div id="message-form-2" style="display:none;">
                 <input type="text" id="name-2" placeholder="Your Name" required>
