@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGMC AI&ML</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="imgs/logo.jpg" type="image/x-icon">
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #000000;
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1800px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #ffffff;
+          
+        }
+
+    
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        
+            transition: 1s ease-in-out;
+
+        }
+
+        .card img:hover {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+         
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .card-buttons {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card-buttons a {
+            padding: 10px 90px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition:  1s ease-in-out;
+            border: 1px solid #ffffff;
+           
+            color: white;
+            text-decoration: none;
+        }
+
+        .card-buttons a:hover {
+            background: #ffffff;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Repeat this container for 10 times with different titles, descriptions, and navigation links -->
+        <div class="card">
+            <img src="imgs/hk.jpg" alt="Image 1">
+            <div class="card-content">
+                <h3>Web Development Hackathon</h3>
+                <p>Join our web development hackathon and showcase your skills. Participants are required to develop a website using HTML, 
+                    CSS, and JavaScript within 2 days. This is a fantastic opportunity to demonstrate your proficiency and creativity in web
+                     development.</p>
+            </div>
+            <div class="card-buttons">
+                <a href="register-page/register.html">Register Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="imgs/dnc.jpg" alt="Image 2">
+            <div class="card-content">
+                <h3>Dance Competition</h3>
+                <p>Join us for an exciting dance competition featuring various categories are Solo Dance , Duo Dance and Group Dance
+                    Showcase your talent and compete with the best dancers.
+                </p>
+            </div>
+            <div class="card-buttons">
+                <a href="register-page/register.html">Register Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="imgs/qiz.jpg" alt="Image 3">
+            <div class="card-content">
+                <h3>General Quizz</h3>
+                <p>The Quiz Competition is an exciting and intellectually stimulating event designed to challenge the knowledge and quick-thinking abilities of participants. 
+                    Teams will compete against each other to answer a wide range of questions covering various topics. This event promises to be both fun and educational, providing a great opportunity to showcase your trivia skills.</p>
+            </div>
+            <div class="card-buttons">
+                <a href="register-page/register.html">Register Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="imgs/sing.jpg"alt="Image 4">
+            <div class="card-content">
+                <h3>Singing Competition</h3>
+                <p>The Sing Competition is a highly anticipated event that showcases the vocal talents of participants from various backgrounds. Whether you're a solo artist or
+                     part of a group, this competition provides a platform to express your passion for singing and captivate the audience with your voice.</p>
+            </div>
+            <div class="card-buttons">
+                <a href="register-page/register.html">Register Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="imgs/tre.jpg" alt="Image 5">
+            <div class="card-content">
+                <h3>Treasure-Hunt</h3>
+                <p>The Treasure Hunt Game is an exhilarating and adventurous event that combines physical challenges with problem-solving skills.
+                     Participants will embark on a quest filled with clues, puzzles, and hidden treasures. This event promises excitement, teamwork, and the thrill of discovery as you navigate through various obstacles to find the ultimate treasure.</p>
+            </div>
+            <div class="card-buttons">
+                <a href="register-page/register.html">Register Now</a>
+            </div>
+        </div>
+     
+        <!-- Repeat ends -->
+    </div>
+</body>
+</html>

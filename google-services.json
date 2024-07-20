@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1056597328049",
+    "firebase_url": "https://eventregister-ab2fc-default-rtdb.firebaseio.com",
+    "project_id": "eventregister-ab2fc",
+    "storage_bucket": "eventregister-ab2fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056597328049:android:e04e9672aeeac45be02290",
+        "android_client_info": {
+          "package_name": "com.ngmc.aiml"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvfKEmzO888a_P93t88hGGJxPyd5rd0Es"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
