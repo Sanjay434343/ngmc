@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .heading h2 {
+            text-align: center;
+            font-size: 34px;
+            margin: 60px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .card {
+            width: 300px;
+            position: relative;
+        }
+
+        .card .card-inner {
+            position: relative;
+            height: 300px;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .card .card-inner .box .img-box {
+            position: absolute;
+            inset: 0;
+            transition: 0.3s all linear;
+        }
+
+        .card .card-inner .box .img-box:hover {
+            transform: scale(1.1);
+        }
+
+        .card .card-inner .box .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            border-top-left-radius: 50px;
+            padding: 12px;
+            background-color: white;
+        }
+
+        .icon::after {
+            position: absolute;
+            content: "";
+            top: -18px;
+            right: 0;
+            background: transparent;
+            width: 18px;
+            height: 18px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 10px 10px 0 10px #fff;
+        }
+
+        .icon::before {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: -18px;
+            background: transparent;
+            width: 18px;
+            height: 18px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 10px 10px 0 10px #fff;
+        }
+
+        .icon span {
+            transform: rotate(-40deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50px;
+            background-color: white;
+            transition: 0.3s all linear;
+        }
+
+        .card:nth-child(1) .icon span {
+            background-color: #d3b19a;
+        }
+
+        .card:nth-child(2) .icon span {
+            background-color: #70b3b1;
+        }
+
+        .card:nth-child(3) .icon span {
+            background-color: #d05fa2;
+        }
+
+        .icon i {
+            color: white;
+            font-size: 24px;
+        }
+
+        .icon:hover span {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        .content h3 {
+            font-size: 24px;
+            margin-bottom: 0;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .modal-content button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: 2px solid black;
+            border-radius: 6px;
+            cursor: pointer;
+            background-color: #ffffff;
+            color: #000000;
+            
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content button:hover {
+            background-color: #46444498;
+            color: white;
+        }
+
+        .modal-content input[type="text"], .modal-content input[type="tel"], .modal-content textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ced4da;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="heading">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?w=740&t=st=1721477734~exp=1721478334~hmac=b41f056efe8008e0836cd4abe897dd1e8da4087b0edaf054833a8d518b7450e8" alt="">
+                        </div>
+                        <div class="icon">
+                            <span>
+                                <a href="#" class="open-modal" data-target="modal-1" style="text-decoration: none;">
+                                    <i class="fa-solid fa-arrow-right">→</i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>Martin</h3>
+                    <p>Feel free to ask if anything is unclear.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671116.jpg?w=740&t=st=1721477793~exp=1721478393~hmac=670621cbe0f37e105ac480fe943a42113ecdadd7563151c5a9e7cd1ca3cd8a2d" alt="">
+                        </div>
+                        <div class="icon">
+                            <span>
+                                <a href="#" class="open-modal" data-target="modal-2" style="text-decoration: none;">
+                                    <i class="fa-solid fa-arrow-right">→</i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>Max</h3>
+                    <p>I'm here to help if you need any clarification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal 1 -->
+    <div class="modal" id="modal-1">
+        <div class="modal-content">
+            <h3>Contact Martin</h3>
+            <button onclick="window.location.href='tel:+1234567890'">Call</button>
+            <button id="message-button-1">Message</button>
+            <div id="message-form-1" style="display:none;">
+                <input type="text" id="name-1" placeholder="Your Name" required>
+                <input type="tel" id="phone-1" placeholder="Your Phone Number" required>
+                <textarea id="message-1" placeholder="Your Message" rows="4" required></textarea>
+                <button onclick="sendMessage('8903219655', document.getElementById('message-1').value)">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal" id="modal-2">
+        <div class="modal-content">
+            <h3>Contact Max</h3>
+            <button onclick="window.location.href='tel:+0987654321'">Call</button>
+            <button id="message-button-2">Message</button>
+            <div id="message-form-2" style="display:none;">
+                <input type="text" id="name-2" placeholder="Your Name" required>
+                <input type="tel" id="phone-2" placeholder="Your Phone Number" required>
+                <textarea id="message-2" placeholder="Your Message" rows="4" required></textarea>
+                <button onclick="sendMessage('0987654321', document.getElementById('message-2').value)">Send</button>
+            </div>
+        </div
+    </div>
+</div>
+
+    <script>
+        // Function to handle opening modals
+        document.querySelectorAll('.open-modal').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const target = document.getElementById(this.getAttribute('data-target'));
+                target.style.display = 'flex';
+            });
+        });
+
+        // Function to handle closing modals when clicking outside the modal content
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(event) {
+                if (event.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+        });
+
+        // Function to handle the "Message" button click
+        document.getElementById('message-button-1').addEventListener('click', function() {
+            document.getElementById('message-form-1').style.display = 'block';
+        });
+
+        document.getElementById('message-button-2').addEventListener('click', function() {
+            document.getElementById('message-form-2').style.display = 'block';
+        });
+
+        // Function to send WhatsApp message
+        function sendMessage(number, message) {
+            const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
