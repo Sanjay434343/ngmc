@@ -3,30 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="image" type="logo" href="imgs/logo.jpg">
+  <link rel="icon" type="image/x-icon" href="imgs/logo.jpg">
   <title>Event Registration</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Roboto', sans-serif;
+      background-color: #e9ecef;
       margin: 0;
       padding: 0;
+      height: auto;
+      color: #495057;
     }
 
     h1 {
       text-align: center;
-      color: #333;
-      margin-top: 20px;
+      color: #212529;
+      margin-top: 40px;
+      font-size: 2.5rem;
+      font-weight: 600;
     }
 
     .container {
-      max-width: 600px;
+      max-width: 500px;
       margin: 0 auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 20px;
+      background-color: #dafff9;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+      box-sizing: border-box;
+  
     }
 
     form {
@@ -36,8 +42,8 @@
 
     label {
       margin-bottom: 5px;
-      color: #555;
-      font-weight: bold;
+      color: #495057;
+      font-weight: 500;
     }
 
     input[type="text"],
@@ -46,25 +52,31 @@
     select,
     input[type="file"] {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 2px solid #000000;
+      border-radius: 8px;
       box-sizing: border-box;
+      font-size: 1rem;
+      background-color:#cbfff1 ;
     }
 
     input[type="file"] {
       border: none;
+      padding: 0;
     }
 
     button {
       background-color: #28a745;
-      color: white;
-      padding: 10px 20px;
+      color: #ffffff;
+      padding: 12px;
       border: none;
-      border-radius: 4px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
     }
 
     button:hover {
@@ -78,25 +90,26 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.4);
       justify-content: center;
       align-items: center;
       z-index: 1000;
     }
 
     .modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
       text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .loading-spinner {
       border: 4px solid rgba(0, 0, 0, 0.1);
       border-left: 4px solid #28a745;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       animation: spin 1s linear infinite;
       margin: 0 auto;
     }
@@ -108,32 +121,48 @@
 
     @media (max-width: 600px) {
       .container {
-        padding: 15px;
-        margin-top: 10px;
+        padding: 20px;
+        margin-top: 20px;
       }
 
       button {
-        padding: 12px 20px;
-        font-size: 14px;
+        padding: 14px;
+        font-size: 0.9rem;
       }
     }
 
     .imgs {
-      position: relative;
-      left: 80px;
+      display: block;
+      max-width: 100%;
+      margin: 0 auto 20px;
     }
 
-    @media (min-width: 1000px) {
-      .imgs {
-        position: relative;
-        left: 183px;
-      }
+    .payment-method {
+      margin-bottom: 20px;
+      font-size: 1rem;
     }
+    
+    .file-input {
+border: 2px solid #000000;
+align-items: center;
+text-align: center;
+border-radius: 6px;
+margin: 10px 10px;
+
+    }
+  
+    input[type="file"]{
+      position: relative;
+      left: 100px;
+      top: 10px;
+    }
+ 
+  
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Event Registration</h1>
+    <h2>Event Registration</h2>
     <form id="registration-form">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
@@ -165,15 +194,16 @@
         <option value="treasureHunt">Treasure Hunt</option>
       </select>
 
+  
       <label for="payment">Payment:</label>
-      <p style="font-weight: bold;">Pay ₹50 for the event now, or pay at the college later.</p>
-      <img src="qr.png" alt="QR code" style="max-width: 200px;" class="imgs">
-
+      <p class="payment-method">Pay ₹50 for the event now, or pay at the college later.</p>
+      <img src="qr.png" alt="QR code" class="imgs">
+      <div class="file-input">  
       <input type="file" id="image" name="image" accept="image/*">
-
+    </div>
       <div>
         <input type="radio" id="pay-later" name="payment" value="pay-later">
-        <label for="pay-later">Pay Later at College</label>
+        <label for="pay-later">Pay Later at College</label><br>
       </div>
 
       <button type="submit">Register</button>
@@ -255,18 +285,20 @@
               image: base64Image, // Store image Base64 data
               paymentMethod: paymentMethod // Store payment method separately
             }).then(() => {
-              // Hide loading modal and redirect to success page
+              // Hide loading modal and reset form
               loadingModal.style.display = 'none';
-              window.location.href = 'success.html'; // Redirect to success page
+              form.reset();
+              alert('Registration successful!');
             }).catch((error) => {
-              console.error('Error registering:', error);
-              alert('Error registering. Please try again.');
-              loadingModal.style.display = 'none'; // Hide loading modal
+              // Handle error
+              loadingModal.style.display = 'none';
+              console.error('Error saving registration:', error);
+              alert('Registration failed. Please try again.');
             });
           };
-          reader.readAsDataURL(file); // Convert image file to Base64
+          reader.readAsDataURL(file);
         } else {
-          // If no image is uploaded, store empty string
+          // Store data without image
           const registrationsRef = ref(database, 'registrations');
           const newRegistrationRef = push(registrationsRef);
           set(newRegistrationRef, {
@@ -277,16 +309,18 @@
             university: university,
             gender: gender,
             eventType: eventType,
-            image: '', // No image uploaded
+            image: null, // No image uploaded
             paymentMethod: paymentMethod // Store payment method separately
           }).then(() => {
-            // Hide loading modal and redirect to success page
+            // Hide loading modal and reset form
             loadingModal.style.display = 'none';
-            window.location.href = 'success.html'; // Redirect to success page
+            form.reset();
+            alert('Registration successful!');
           }).catch((error) => {
-            console.error('Error registering:', error);
-            alert('Error registering. Please try again.');
-            loadingModal.style.display = 'none'; // Hide loading modal
+            // Handle error
+            loadingModal.style.display = 'none';
+            console.error('Error saving registration:', error);
+            alert('Registration failed. Please try again.');
           });
         }
       });
