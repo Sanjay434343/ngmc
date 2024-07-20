@@ -3,169 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGMC AI&ML</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="icon" href="imgs/logo.jpg" type="image/x-icon">
+    <title>Document</title>
 
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
-
-        * {
+        *{
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #000000;
-            padding: 20px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 1800px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid #ffffff;
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+          }
           
-        }
-
-    
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        
-            transition: 1s ease-in-out;
-
-        }
-
-        .card img:hover {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-         
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: white;
-        }
-
-        .card-content p {
-            font-size: 1rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-
-        .card-buttons {
+          h1{
+            font-size: 2.5rem;
+            font-family: 'Montserrat';
+            font-weight: normal;
+            color: #444;
+            text-align: center;
+            margin: 2rem 0;
+          }
+          
+          .wrapper{
+            width: 90%;
+            margin: 0 auto;
+            max-width: 80rem;
+          }
+          
+          .cols{
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .card-buttons a {
-            padding: 10px 90px;
-            border: none;
-            border-radius: 5px;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+          }
+          
+          .col{
+            width: calc(25% - 2rem);
+            margin: 1rem;
             cursor: pointer;
-            font-size: 1rem;
-            transition:  1s ease-in-out;
-            border: 1px solid #ffffff;
-           
-            color: white;
-            text-decoration: none;
-        }
+          }
+          
+          .container{
+            -webkit-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+              -webkit-perspective: 1000px;
+                      perspective: 1000px;
+          }
+          
+          .front,
+          .back{
+            background-size: cover;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
+            border-radius: 10px;
+              background-position: center;
+              -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+              transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+              -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+              transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+              transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+              -webkit-backface-visibility: hidden;
+                      backface-visibility: hidden;
+              text-align: center;
+              min-height: 280px;
+              height: auto;
+              border-radius: 10px;
+              color: #fff;
+              font-size: 1.5rem;
+          }
+          
+          .back{
+            background: #0091ff;
+            background: -webkit-linear-gradient(45deg,  #0291ff 0%,#596a72 100%);
+            background: -o-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+            background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+          }
+          
+          .front:after{
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 1;
+              width: 100%;
+              height: 100%;
+              content: '';
+              display: block;
+              opacity: .6;
+              background-color: #00000081;
+              -webkit-backface-visibility: hidden;
+                      backface-visibility: hidden;
+              border-radius: 10px;
+          }
+          .container:hover .front,
+          .container:hover .back{
+              -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+              transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+              -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+              transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+              transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+          }
+          
+          .back{
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+          }
+          
+          .inner{
+              -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+                      transform: translateY(-50%) translateZ(60px) scale(0.94);
+              top: 50%;
+              position: absolute;
+              left: 0;
+              width: 100%;
+              padding: 2rem;
+              -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+              outline: 1px solid transparent;
+              -webkit-perspective: inherit;
+                      perspective: inherit;
+              z-index: 2;
+          }
+          
+          .container .back{
+              -webkit-transform: rotateY(180deg);
+                      transform: rotateY(180deg);
+              -webkit-transform-style: preserve-3d;
+                      transform-style: preserve-3d;
+          }
+          
+          .container .front{
+              -webkit-transform: rotateY(0deg);
+                      transform: rotateY(0deg);
+              -webkit-transform-style: preserve-3d;
+                      transform-style: preserve-3d;
+          }
+          
+          .container:hover .back{
+            -webkit-transform: rotateY(0deg);
+                    transform: rotateY(0deg);
+            -webkit-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+          }
+          
+          .container:hover .front{
+            -webkit-transform: rotateY(-180deg);
+                    transform: rotateY(-180deg);
+            -webkit-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+          }
+          
+          .front .inner p{
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+          }
+          
+          .front .inner p:after{
+            content: '';
+            width: 4rem;
+            height: 2px;
+            position: absolute;
+            background: #C6D4DF;
+            display: block;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            bottom: -.75rem;
+          }
+          
+          .front .inner span{
+            color: rgba(255,255,255,0.7);
+            font-family: 'Montserrat';
+            font-weight: 300;
+          }
+          
+          @media screen and (max-width: 64rem){
+            .col{
+              width: calc(33.333333% - 2rem);
+            }
+          }
+          
+          @media screen and (max-width: 48rem){
+            .col{
+              width: calc(50% - 2rem);
+            }
+          }
+          
+          @media screen and (max-width: 32rem){
+            .col{
+              width: 100%;
+              margin: 0 0 2rem 0;
+            }
+          }
 
-        .card-buttons a:hover {
-            background: #ffffff;
-            color: black;
-        }
+          .btn{
+            text-decoration: none;
+            border: 2px solid #ffffff;
+            padding: 10px 10px;
+            color: white;
+         position: relative;
+         top: 30px;
+         transition: 0.5s ease-in-out;
+          }
+
+          .btn:hover{
+            background-color: white;
+            color: #000;
+          }
     </style>
 </head>
 <body>
-    <div class="grid-container">
-        <!-- Repeat this container for 10 times with different titles, descriptions, and navigation links -->
-        <div class="card">
-            <img src="imgs/hk.jpg" alt="Image 1">
-            <div class="card-content">
-                <h3>Web Development Hackathon</h3>
-                <p>Join our web development hackathon and showcase your skills. Participants are required to develop a website using HTML, 
-                    CSS, and JavaScript within 2 days. This is a fantastic opportunity to demonstrate your proficiency and creativity in web
-                     development.</p>
-            </div>
-            <div class="card-buttons">
-                <a href="register-page/register.html">Register Now</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="imgs/dnc.jpg" alt="Image 2">
-            <div class="card-content">
-                <h3>Dance Competition</h3>
-                <p>Join us for an exciting dance competition featuring various categories are Solo Dance , Duo Dance and Group Dance
-                    Showcase your talent and compete with the best dancers.
-                </p>
-            </div>
-            <div class="card-buttons">
-                <a href="register-page/register.html">Register Now</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="imgs/qiz.jpg" alt="Image 3">
-            <div class="card-content">
-                <h3>General Quizz</h3>
-                <p>The Quiz Competition is an exciting and intellectually stimulating event designed to challenge the knowledge and quick-thinking abilities of participants. 
-                    Teams will compete against each other to answer a wide range of questions covering various topics. This event promises to be both fun and educational, providing a great opportunity to showcase your trivia skills.</p>
-            </div>
-            <div class="card-buttons">
-                <a href="register-page/register.html">Register Now</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="imgs/sing.jpg"alt="Image 4">
-            <div class="card-content">
-                <h3>Singing Competition</h3>
-                <p>The Sing Competition is a highly anticipated event that showcases the vocal talents of participants from various backgrounds. Whether you're a solo artist or
-                     part of a group, this competition provides a platform to express your passion for singing and captivate the audience with your voice.</p>
-            </div>
-            <div class="card-buttons">
-                <a href="register-page/register.html">Register Now</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="imgs/tre.jpg" alt="Image 5">
-            <div class="card-content">
-                <h3>Treasure-Hunt</h3>
-                <p>The Treasure Hunt Game is an exhilarating and adventurous event that combines physical challenges with problem-solving skills.
-                     Participants will embark on a quest filled with clues, puzzles, and hidden treasures. This event promises excitement, teamwork, and the thrill of discovery as you navigate through various obstacles to find the ultimate treasure.</p>
-            </div>
-            <div class="card-buttons">
-                <a href="register-page/register.html">Register Now</a>
-            </div>
-        </div>
-     
-        <!-- Repeat ends -->
-    </div>
+    <div class="wrapper">
+        <h1>Conducting Event's</h1>
+        <div class="cols">
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(imgs/dnc.jpg)">
+                              <div class="inner">
+                                  <p>DANCE</p>
+                 
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                <p>Join our dance competition: Solo, Duo, Group categories. Showcase your talent and compete!.</p>
+                              <a href="register-page/register.html" class="btn"> Register Now</a>
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                 
+
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                    <div class="container">
+                        <div class="front" style="background-image: url(imgs/qiz.jpg)">
+                            <div class="inner">
+                                <p>QUIZZ</p>
+            
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                              <p>Join our Quiz Competition to challenge your knowledge and quick thinking. Fun and educational!.</p>
+                              <a href="register-page/register.html" class="btn"> Register Now</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+                <div class="col" ontouchstart="this.classList.toggle('hover');">
+                    <div class="container">
+                        <div class="front" style="background-image: url(imgs/hk.jpg)">
+                            <div class="inner">
+                                <p>WEB HACKATHON</p>
+                 
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                              <p>Join our 4hrs web dev hackathon to showcase your HTML, CSS, and JavaScript skills!</p>
+                              <a href="register-page/register.html" class="btn"> Register Now</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+                <div class="col" ontouchstart="this.classList.toggle('hover');">
+                    <div class="container">
+                        <div class="front" style="background-image: url(imgs/sing.jpg)">
+                            <div class="inner">
+                                <p>SINGING</p>
+              
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                              <p>Join our Sing Competition to showcase your vocal talent, solo or group, and captivate the audience!.</p>
+                              <a href="register-page/register.html" class="btn"> Register Now</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col" ontouchstart="this.classList.toggle('hover');">
+                    <div class="container">
+                        <div class="front" style="background-image: url(imgs/tre.jpg)">
+                            <div class="inner">
+                                <p>TREASUREHUNT</p>
+                
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                              <p>Join our Treasure Hunt Game for an exhilarating quest of clues, puzzles, and hidden treasures!.</p>
+                              <a href="register-page/register.html" class="btn"> Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                  </div>
+              </div>
+       </div>
 </body>
 </html>

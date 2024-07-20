@@ -995,4 +995,25 @@ width: 100%;
 
 
 
-  
+  .by{
+    position: relative;
+    top: 160px;
+    text-decoration: none;
+  }
+
+  .link{
+    color: white;
+    transition: 1s ease-in-out;
+
+  }
+
+  .link:hover{
+    font-size: 20px;
+    color: rgb(0, 21, 255);
+  }
+
+  .img-by{
+    position: relative;
+    top: 160px;
+    width: 30px;
+  }
