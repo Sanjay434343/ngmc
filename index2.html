@@ -1,0 +1,456 @@
+<style>
+    *{
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+      }
+      
+      .container {
+        margin: auto;
+        max-width: 1200px;
+        padding: 0 20px;
+        justify-content: space-between;
+      }
+      
+      .img {
+        background-image: url("bg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 40px 0 100px;
+        background-attachment: fixed;
+      }
+      
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      a {
+        color: white;
+        font-weight: 700;
+        font-size: 15px;
+        font-family: Sans-serif;
+        text-decoration: none;
+        margin-bottom: 70px;
+      }
+      
+      .title1 {
+        color: #ff8001;
+        font-family: 'Quicksand', sans-serif;
+        letter-spacing: 2px;
+        font-size: 14px;
+      }
+      
+      .title2 {
+        color: white;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 40px;
+        font-weight: bold;
+      }
+      
+      .introduce {
+        color: #ffffffb3;
+        font-family: 'Quicksand', sans-serif;
+        line-height: 1.5;
+        font-size: 17px;
+      }
+      
+      .jotform-icon {
+        background-image: url("imgs/logo.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-bottom: 70px;
+      }
+      
+      .button {
+        padding: 12px 17px;
+        border-radius: 5px;
+        border: 0;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bold;
+        background-color: white;
+        font-size: 100%;
+        letter-spacing: 0.5px;
+        margin-top: 5px;
+      }
+      
+      .title3 {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 40px;
+        text-align: center;
+        margin-top: 90px;
+      }
+      
+      .icon1-img {
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 120px;
+        height: 120px;
+      }
+      
+      .icon-description {
+        display: block;
+        text-align: center;
+        font-family: 'Quicksand', sans-serif;
+        color: #000000b3;
+        font-weight: 500;
+        font-size: 15px;
+      }
+      
+      .icon-list {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      
+      .three-icon {
+        flex: 1;
+        padding: 30px;
+      }
+      
+      .icon-title {
+        font-family: 'Quicksand', sans-serif;
+      }
+      
+      .page2 {
+        text-align: center;
+      }
+      
+      .page3 {
+        background-color: #fbfbfb;
+      }
+      
+      .page3-box {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 20px 0;
+      }
+      
+      .page3-img {
+        max-width: 540px;
+        width: 100%;
+      }
+      
+      .information {
+        flex: 1;
+        padding-left: 70px;
+      }
+      
+      button.learn-more {
+        background-color: #292b2c;
+        color: white;
+      }
+      
+      .info-title {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      
+      .info-all {
+        color: #000000b3;
+        margin-bottom: 20px;
+        line-height: 1.4;
+        font-size: 17px;
+      }
+      
+      .get-free {
+        background-color: #292b2c;
+        color: white;
+      }
+      
+      .memberships {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      
+      .member {
+        flex: auto;
+        padding: 60px;
+        text-align: center;
+        font-family: 'Quicksand', sans-serif;
+        border-radius: 4px;
+      }
+      
+      span {
+        font-size: 40px;
+      }
+      
+      .mem-title {
+        font-size: 26px;
+        font-weight: bold;
+      }
+      
+      .orange {
+        background-color: #ff8001;
+        color: white;
+      }
+      
+      .page4 {
+        padding: 80px 0;
+      }
+      
+      .under {
+        background-color: #f5f5f5;
+        padding: 10px;
+        display: flex;
+      }
+      
+      .under .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+      }
+      
+      .copy {
+        font-family: 'Work Sans', sans-serif;
+      }
+      
+      .facebook {
+        background-image: url("https://i.ibb.co/x6n6DNV/facebook-logo-button.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+      }
+      
+      .sos-med {
+        display: flex;
+        justify-content: space-between;
+        width: 100px;
+      }
+      
+      .twitter {
+        background-image: url("https://i.ibb.co/wzstzsd/twitter.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+      }
+      
+      .linkedin {
+        background-image: url("https://i.ibb.co/9T8kqqb/linkedin-logo-button.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+      }
+      
+      @media (max-width: 840px) {
+        .information {
+          padding-left: 0;
+          text-align: center;
+        }
+        .page3-box {
+          justify-content: center;
+        }
+      }
+      
+      figure.snip1200 {
+        font-family: 'Raleway', Arial, sans-serif;
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+        min-width: 220px;
+        max-width: 310px;
+        max-height: 310px;
+        width: 100%;
+        background: #000000;
+        color: #ffffff;
+        text-align: center;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        font-size: 16px;
+        flex: 1 1 30%;
+      }
+      
+      figure.snip1200 * {
+        box-sizing: border-box;
+        transition: all 0.45s ease-in-out;
+      }
+      
+      figure.snip1200 img {
+        max-width: 100%;
+        position: relative;
+        opacity: 0.9;
+      }
+      
+      figure.snip1200 figcaption {
+        position: absolute;
+        top: 45%;
+        left: 7%;
+        right: 7%;
+        bottom: 45%;
+        border: 1px solid white;
+        border-width: 1px 1px 0;
+      }
+      
+      figure.snip1200 .heading {
+        overflow: hidden;
+        transform: translateY(50%);
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+      
+      figure.snip1200 h2 {
+        display: table;
+        margin: 0 auto;
+        padding: 0 10px;
+        position: relative;
+        text-align: center;
+        width: auto;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+      
+      figure.snip1200 h2 span {
+        font-weight: 800;
+      }
+      
+      figure.snip1200 h2:before,
+      figure.snip1200 h2:after {
+        position: absolute;
+        display: block;
+        width: 1000%;
+        height: 1px;
+        content: '';
+        background: white;
+        top: 50%;
+      }
+      
+      figure.snip1200 h2:before {
+        left: -1000%;
+      }
+      
+      figure.snip1200 h2:after {
+        right: -1000%;
+      }
+      
+      figure.snip1200 p {
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        width: 100%;
+        padding: 0 20px;
+        margin: 0;
+        opacity: 0;
+        line-height: 1.6em;
+        font-size: 0.9em;
+      }
+      
+      figure.snip1200 a {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        z-index: 1;
+      }
+      
+      figure.snip1200:hover img,
+      figure.snip1200.hover img {
+        opacity: 0.25;
+        transform: scale(1.1);
+      }
+      
+      figure.snip1200:hover figcaption,
+      figure.snip1200.hover figcaption {
+        top: 7%;
+        bottom: 7%;
+      }
+      
+      figure.snip1200:hover p,
+      figure.snip1200.hover p {
+        opacity: 1;
+        transition-delay: 0.35s;
+      }
+      
+      .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      
+      @media (max-width: 768px) {
+        .grid-container {
+          justify-content: center;
+        }
+      }
+      
+</style>
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&display=swap" rel="stylesheet">
+<div class="img">
+  
+ <div class="container"> 
+  <div class="header"> 
+    <div class="jotform-icon">
+  
+   </div>
+        <a href= "#">MORE</a>
+ </div>
+   <div class="start">
+     <h2 class="title1"> AI & ML DEPARTMENT</h2>
+     <h1 class="title2">NGMC</h1>
+   
+     <a class="button" style="color: black;">Get Started</a>
+   </div>
+   </div>
+</div>
+
+
+<figure class="snip1200">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample27.jpg" alt="sq-sample27" />
+    <figcaption>
+      <p>I say, if your knees aren't green by the end of the day, you ought to seriously re-examine your life.</p>
+      <div class="heading">
+        <h2>My<span> Hobby</span></h2>
+      </div>
+    </figcaption>
+    <a href="#"></a>
+  </figure>
+  <figure class="snip1200 hover">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample31.jpg" alt="sq-sample31" />
+    <figcaption>
+      <p>The inside of my head was exploding with fireworks. Fortunately, my last thought turned out the lights when it left.</p>
+      <div class="heading">
+        <h2>My<span> Work</span></h2>
+      </div>
+    </figcaption>
+    <a href="#"></a>
+  </figure>
+  <figure class="snip1200">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample32.jpg" alt="sq-sample32" />
+    <figcaption>
+      <p>That's the difference between me and the rest of the world! Happiness isn't good enough for me! I demand euphoria! </p>
+      <div class="heading">
+        <h2>My <span> Dream</span></h2>
+      </div>
+    </figcaption>
+    <a href="#"></a>
+  </figure>
+
+<div class="under">
+  <div class="container">
+    <div class="copy">Copyright © 2019</div> 
+    <div class="sos-med">
+      <a href="#">
+        <div class="facebook"> </div>
+      </a>
+       <a href="#">
+        <div class="twitter"> </div>
+      </a>
+       <a href="#">
+        <div class="linkedin"> </div>
+      </a>
+    </div>
+  </div>
+</div>

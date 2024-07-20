@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        .card {
+            height: 180px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            background: #fdfcfd;
+            box-shadow: 5px 10px 100px rgba(0, 0, 0, 0.3);
+            position: relative;
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        .inner-card {
+            background: linear-gradient(to left bottom, #78e393, #3dd263);
+            height: 120px;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: sans-serif;
+            text-align: center;
+            font-weight: 200;
+            width: 45%;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            border-radius: 10px;
+            padding-top: 20px;
+        }
+
+        .inner-card-2 {
+            background: linear-gradient(to left bottom, #e27777, #ef5656);
+        }
+
+        .fa-check-circle, .fa-redo {
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        h1, h4 {
+            text-shadow: 1px 0px 1px #8fe4a5, 0px 1px 1px #66d483, 2px 1px 1px #8fe4a5, 1px 2px 1px #66d483, 3px 2px 1px #8fe4a5, 2px 3px 1px #66d483, 4px 3px 1px #8fe4a5, 3px 4px 1px #66d483, 5px 4px 1px #8fe4a5, 4px 5px 1px #66d483, 6px 5px 1px #8fe4a5, 5px 6px 1px #66d483, 7px 6px 1px #8fe4a5, 2px 2px 2px rgba(206, 89, 55, 0);
+            position: absolute;
+            letter-spacing: 1px;
+            font-size: 1.5em;
+            margin-top: 10px;
+            color: #5e5d59;
+            left: 10px;
+            font-family: sans-serif;
+        }
+
+        h2 {
+            margin-top: 90px;
+            position: absolute;
+            color: #5e5d59;
+            font-family: sans-serif;
+            font-size: 1em;
+            left: 10px;
+        }
+
+        h4 {
+            text-shadow: 1px 0px 1px #e27776, 0px 1px 1px #e27776, 2px 1px 1px #e27776, 1px 2px 1px #e27776, 3px 2px 1px #e27776, 2px 3px 1px #e27776, 4px 3px 1px #e27776, 3px 4px 1px #e27776, 5px 4px 1px #e27776, 4px 5px 1px #e27776, 6px 5px 1px #e27776, 5px 6px 1px #e27776, 7px 6px 1px #e27776, 2px 2px 2px rgba(206, 89, 55, 0);
+            margin-top: 10px;
+        }
+
+        .inner-card h3 {
+            color: #ffffff;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                width: 90%;
+                height: 160px;
+            }
+
+            .inner-card {
+                height: 130px;
+                width: 40%;
+                right: 9px;
+                top: 20px;
+                padding-top: 10px;
+                text-align: center;
+                font-size: 1.3em;
+            }
+
+            h1, h4 {
+                font-size: 3.2em;
+                margin-top: 50px;
+            }
+
+            h2 {
+                margin-top: 120px;
+                left: 20px;
+            }
+        }
+
+        .atag{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1><i>YEAP</i></h1>
+        <h2><em>YOU DID THIS!</em></h2>
+        <div class="inner-card"><br>
+            <i class="fa fa-check-circle"></i>
+            <h3>KEEP GOING</h3>
+        </div>
+    </div>
+   
+    </div>
+</body>
+</html>

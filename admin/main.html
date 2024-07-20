@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .person {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .person h2 {
+            margin: 0;
+            color: #333;
+        }
+
+        .person p {
+            margin: 5px 0;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Event Participants</h1>
+        <ul id="peopleList">
+            <!-- Data will be dynamically added here -->
+        </ul>
+    </div>
+
+    <!-- Firebase JavaScript SDK - Modular Version -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js';
+        import { getDatabase, ref, onValue, query, equalTo, orderByChild } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js';
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAvfKEmzO888a_P93t88hGGJxPyd5rd0Es",
+            authDomain: "eventregister-ab2fc.firebaseapp.com",
+            databaseURL: "https://eventregister-ab2fc-default-rtdb.firebaseio.com",
+            projectId: "eventregister-ab2fc",
+            storageBucket: "eventregister-ab2fc.appspot.com",
+            messagingSenderId: "1056597328049",
+            appId: "1:1056597328049:web:e04e9672aeeac45be02290" 
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Get event type from query parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const eventType = getQueryParam('event'); // e.g., 'singing'
+
+        function fetchParticipants() {
+            if (eventType) {
+                // Query Firebase for participants of the specified event
+                const participantsRef = ref(database, 'registrations');
+                const filteredQuery = query(participantsRef, orderByChild('eventType'), equalTo(eventType));
+
+                onValue(filteredQuery, (snapshot) => {
+                    const data = snapshot.val();
+                    const peopleList = document.getElementById('peopleList');
+                    peopleList.innerHTML = '';
+
+                    if (data) {
+                        for (const key in data) {
+                            if (Object.hasOwnProperty.call(data, key)) {
+                                const personData = data[key];
+                                const listItem = document.createElement('li');
+                                listItem.classList.add('person');
+                                listItem.innerHTML = `
+                                    <h2>${personData.name}</h2>
+                                    <p>Email: ${personData.email}</p>
+                                    <p>Phone: ${personData.phone}</p>
+                                    <p>Gender: ${personData.gender}</p>
+                                    <p>Event Type: ${personData.eventType}</p>
+
+                                    <p>Course: ${personData.course}</p>
+                                    <p>University: ${personData.university}</p>
+                                    <img src="data:image/jpeg;base64,${personData.image}" alt="Profile Image" style="max-width: 100%; height: auto;">
+                                `;
+                                peopleList.appendChild(listItem);
+                            }
+                        }
+                    } else {
+                        peopleList.innerHTML = '<li>No participants found for this event.</li>';
+                    }
+                });
+            } else {
+                document.getElementById('peopleList').innerHTML = '<li>No event type specified.</li>';
+            }
+        }
+
+        // Call function to fetch participants
+        fetchParticipants();
+    </script>
+</body>
+</html>
